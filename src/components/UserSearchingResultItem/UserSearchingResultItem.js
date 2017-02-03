@@ -6,7 +6,7 @@ export default class UserSearchingResultItem extends Component {
   }
   
   render() {
-    const {	item } = this.props;
+    const { item } = this.props;
 
     return (
       <div className="usersearchinglist_item">
