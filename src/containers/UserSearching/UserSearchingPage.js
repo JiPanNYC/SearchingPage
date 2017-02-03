@@ -26,7 +26,7 @@ import 'react-select/dist/react-select.css';
     usersearching: state.usersearching.searchingresult,
   }))
 
-export default class JobPostPage extends Component {
+export default class UserSearchingPage extends Component {
   constructor(props) {
     super(props);
     const rawData = this.props.searchingresult;
@@ -148,7 +148,7 @@ export default class JobPostPage extends Component {
                 Data is randomly generated from <a href = 'http://www.json-generator.com/'><u>http://www.json-generator.com/</u></a>
             </div>
           <div className="section-header underlined-section"><span>{jobPostText}</span></div>
-          <div className="job searching">
+          <div className="user searching">
             {userSearchingForm}
           </div>
           <div className="userResultList">

@@ -1,4 +1,4 @@
-import usmarketdata from './usmarketdata';
+import usersearching from './usersearching';
 
 export default combineReducers({
   routing: routerReducer,
