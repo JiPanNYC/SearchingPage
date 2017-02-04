@@ -4,7 +4,7 @@ from django.db import models
 
 
 
-class JobPost(models.Model):
+class UserSearchPost(models.Model):
     index = models.IntegerField(blank=True, null=True)
     isActive = models.BooleanField(default=True, blank=True)
     age = models.IntegerField(max_length=240, blank=True, null=True)

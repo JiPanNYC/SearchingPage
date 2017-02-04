@@ -28,7 +28,7 @@ class UserSearchList(viewsets.ModelViewSet):
             results2 = filterResult | results2;
 
         if queries3 != 'undefined':
-            results3 = results2.filter(Q(gender__icontains=queries3))
+            results3 = results2.filter(gender__icontains=queries3)
             if queries4 != 'undefined':
                 results = results3.filter(Q(eyeColor__icontains=queries4))
                 all_results = list(results)

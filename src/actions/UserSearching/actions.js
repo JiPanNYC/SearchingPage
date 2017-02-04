@@ -1,6 +1,6 @@
 import { LOAD_USERPOST_REQUEST, LOAD_USERPOST_SUCCESS, LOAD_USERPOST_FAILURE, LOAD_USERSEARCH_REQUEST, LOAD_USERSEARCH_SUCCESS, LOAD_USERSEARCH_FAILURE } from '../../redux/modules/constants';
 
-export function fetchJobPost() {
+export function fetchSearchPost() {
   return {
     types: [LOAD_USERPOST_REQUEST, LOAD_USERPOST_SUCCESS, LOAD_USERPOST_FAILURE],
     promise: (client) => client.get(`/api/v1/usersearching/`)

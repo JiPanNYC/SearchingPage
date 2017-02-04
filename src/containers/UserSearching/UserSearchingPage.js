@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
-import { fetchJobPost, fetchSearchQuery } from '../../actions/JobPost/actions';
-import {isLoaded} from '../../redux/modules/jobpost.js';
+import { fetchSearchPost, fetchSearchQuery } from '../../actions/UserSearching/actions';
+import {isLoaded} from '../../redux/modules/usersearching.js';
 import { asyncConnect } from 'redux-async-connect';
 import { Loader } from 'components';
 import { InfiniteScroller } from 'containers';
@@ -15,7 +15,7 @@ import 'react-select/dist/react-select.css';
   promise: ({store: {dispatch, getState}}) => {
     const promises = [];
     if (!isLoaded(getState())) {
-      promises.push(dispatch(fetchJobPost()));
+      promises.push(dispatch(fetchSearchPost()));
     }
     return Promise.all(promises);
   }
@@ -95,7 +95,7 @@ export default class UserSearchingPage extends Component {
   render() {
     const userSearchText = "User Infomation Searching";
     const noresultText = "No such results, Please Search again";
-    const results = (jobPostList) => jobPostList.length == 0 ? <div className='no_results'>{noresultText}</div> : <InfiniteScroller dataArray = {jobPostList.map((item, i) => <UserSearchingResultItem key={i} item={item} />)} />;
+    const results = (searchPostList) => searchPostList.length == 0 ? <div className='no_results'>{noresultText}</div> : <InfiniteScroller dataArray = {searchPostList.map((item, i) => <UserSearchingResultItem key={i} item={item} />)} />;
 
     const userSearchingForm =
       <div className="usersearchingform_container">
@@ -147,12 +147,12 @@ export default class UserSearchingPage extends Component {
           <div className = "references">
                 Data is randomly generated from <a href = 'http://www.json-generator.com/'><u>http://www.json-generator.com/</u></a>
             </div>
-          <div className="section-header underlined-section"><span>{jobPostText}</span></div>
+          <div className="section-header underlined-section"><span>{userSearchText}</span></div>
           <div className="user searching">
             {userSearchingForm}
           </div>
           <div className="userResultList">
-            {results(this.props.jobpost)}
+            {results(this.props.usersearching)}
           </div>
         </Col>
       </div>
